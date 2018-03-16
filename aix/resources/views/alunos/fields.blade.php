@@ -48,8 +48,11 @@
 
 <!-- Avatar Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('avatar', 'Avatar:') !!}
-    {!! Form::text('avatar', null, ['class' => 'form-control']) !!}
+    {{--  {!! Form::label('avatar', 'Avatar:') !!}
+    {!! Form::file('avatar', null, ['class' => 'form-control']) !!}  --}}
+      {{--  {!! Form::label('avatar Avatar:') !!}
+    {!! Form::file('avatar', null) !!}  --}}
+    <input id="avatar" type="file" class="form-control" name="avatar" required>
 </div>
 
 <!-- Submit Field -->

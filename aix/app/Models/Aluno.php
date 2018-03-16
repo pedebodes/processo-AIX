@@ -56,7 +56,7 @@ class Aluno extends Model
         'bairro' => 'string',
         'cidade' => 'string',
         'uf' => 'string',
-        'avatar' => 'string'
+        'avatar' => 'file'
     ];
 
     /**
@@ -65,7 +65,8 @@ class Aluno extends Model
      * @var array
      */
     public static $rules = [
-        'nome' => 'required'
+        'nome' => 'required',
+        'avatar' => 'mimes:jpeg,jpg,png'
     ];
 
     

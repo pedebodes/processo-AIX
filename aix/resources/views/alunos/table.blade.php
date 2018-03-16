@@ -24,7 +24,7 @@
             <td>{!! $aluno->bairro !!}</td>
             <td>{!! $aluno->cidade !!}</td>
             <td>{!! $aluno->uf !!}</td>
-            <td>{!! $aluno->avatar !!}</td>
+            <td><img src="{!! $aluno->avatar !!}" height="42" width="42"></td>
             <td>
                 {!! Form::open(['route' => ['alunos.destroy', $aluno->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

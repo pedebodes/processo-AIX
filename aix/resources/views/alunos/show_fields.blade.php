@@ -54,8 +54,10 @@
 
 <!-- Avatar Field -->
 <div class="form-group">
-    {!! Form::label('avatar', 'Avatar:') !!}
-    <p>{!! $aluno->avatar !!}</p>
+    {{--  {!! Form::label('avatar', 'Avatar:') !!}
+    <p>{!! $aluno->avatar !!}</p>  --}}
+
+    <img src="{!! $aluno->avatar !!}" height="80" width="80">
 </div>
 
 <!-- Created At Field -->

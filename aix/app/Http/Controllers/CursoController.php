@@ -177,11 +177,14 @@ public function carga(Request $request){
                     }
                 }
                 // return redirect('curso.index')
-                return redirect(route('cursos.index'))->with('message', 'Cadastrado efetuado com sucesso!');
+                Flash::success('Cadastrado efetuado com sucesso !');
+                return redirect(route('cursos.index'));
+                
             }# efetua cadastro via formulario
         } else {
-            // return redirect('curso.index')
-            return redirect(route('cursos.index'))->with('message', 'Dados invalidos, favor verificar!');
+            
+            Flash::error('Dados invalidos, favor verificar!');
+            return redirect(route('cursos.index'));
         }
 }
 

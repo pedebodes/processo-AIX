@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Aluno;
 
 class AlunoController extends AppBaseController
 {
@@ -56,9 +57,22 @@ class AlunoController extends AppBaseController
     public function store(CreateAlunoRequest $request)
     {
         $input = $request->all();
-
+     
         $aluno = $this->alunoRepository->create($input);
 
+        $imageName = base64_encode($request->nome . date('Y-m-d H:i:s')) . '.' . $request->file('avatar')->getClientOriginalExtension();
+        $request->file('avatar')->move(base_path() . '/public/avatar/', $imageName);
+
+// echo $aluno->id;
+        //     $upImage = new Aluno();
+        // $upImage::find($aluno->id);
+        // $upImage->avatar = base_path() . '/public/avatar/'.$imageName;
+
+        $aluno = $this->alunoRepository->findWithoutFail($aluno->id);
+       $aluno->avatar = '/avatar/' . $imageName;
+       $aluno->save();
+
+        // dd($aluno);
         Flash::success('Aluno saved successfully.');
 
         return redirect(route('alunos.index'));
