@@ -3,6 +3,10 @@
 @section('content')
     <section class="content-header">
         <h1 class="pull-left">Cursos</h1>
+       
+        <h1 class="pull-right">
+           <a class="btn btn-info pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{{ URL::to('xml') }}">Load from XML</a>
+        </h1>
         <h1 class="pull-right">
            <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('cursos.create') !!}">Add New</a>
         </h1>

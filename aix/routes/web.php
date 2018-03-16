@@ -30,7 +30,8 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('cursos', 'CursoController');
 
-
+Route::get('xml', ['uses' => 'CursoController@xml']);
+Route::post('carga', ['uses' => 'CursoController@carga']);
 
 
 

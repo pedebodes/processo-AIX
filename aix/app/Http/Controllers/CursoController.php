@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use DB;
+use App\Models\Curso;
 
 class CursoController extends AppBaseController
 {
@@ -152,4 +154,37 @@ class CursoController extends AppBaseController
 
         return redirect(route('cursos.index'));
     }
+
+public function xml(){
+            return view('cursos.xml');
+}
+
+public function carga(Request $request){
+        if (!empty($request)) {
+            #Efetua cadastro de via XML
+            if (!empty($request->file('xml_file'))) {
+                $path = $request->file('xml_file')->getRealPath();
+                $xml = simplexml_load_file($path);
+
+                foreach ($xml as $value) {
+                    #Verifica se o resgistro ja esta armazenado na tabela
+                    if (DB::table('cursos')->where('nome', $value->nome)->count() == 0) {
+                        #insere registro na tabela
+                        $curso = new Curso();
+                        $curso->codigo = $value->codigo;
+                        $curso->nome = $value->nome;
+                        $curso->save();
+                    }
+                }
+                // return redirect('curso.index')
+                return redirect(route('cursos.index'))->with('message', 'Cadastrado efetuado com sucesso!');
+            }# efetua cadastro via formulario
+        } else {
+            // return redirect('curso.index')
+            return redirect(route('cursos.index'))->with('message', 'Dados invalidos, favor verificar!');
+        }
+}
+
+
+
 }
