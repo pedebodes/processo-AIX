@@ -1,6 +1,6 @@
 <!-- Id Field -->
 <div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
+    {!! Form::label('id', 'Matricula:') !!}
     <p>{!! $aluno->id !!}</p>
 </div>
 
@@ -67,8 +67,8 @@
 
 <!-- Id Curso Field -->
 <div class="form-group">
-    {!! Form::label('id_curso', 'Id Curso:') !!}
-    <p>{!! $aluno->id_curso !!}</p>
+    {!! Form::label('id_curso', 'Curso:') !!}
+    <p>{!! $curso->nome !!}</p>
 </div>
 
 <!-- Turma Field -->

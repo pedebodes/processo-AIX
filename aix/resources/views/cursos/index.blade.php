@@ -5,10 +5,10 @@
         <h1 class="pull-left">Cursos</h1>
        
         <h1 class="pull-right">
-           <a class="btn btn-info pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{{ URL::to('xml') }}">Load from XML</a>
+           <a class="btn btn-info pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{{ URL::to('xml') }}">Carga via XML</a> &nbsp;
         </h1>
         <h1 class="pull-right">
-           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('cursos.create') !!}">Add New</a>
+           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('cursos.create') !!}">Adicionar Novo Curso</a>
         </h1>
     </section>
     <div class="content">

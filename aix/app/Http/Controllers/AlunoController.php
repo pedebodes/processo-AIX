@@ -12,6 +12,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\Aluno;
 use App\Models\Curso;
+use DB;
 
 class AlunoController extends AppBaseController
 {
@@ -31,12 +32,8 @@ class AlunoController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->alunoRepository->pushCriteria(new RequestCriteria($request));
-        $alunos = $this->alunoRepository->all();
-        
-        
-
-
+        $sql = "select a.*,c.nome as curso from alunos a inner join cursos c on a.id_curso = c.id";
+        $alunos = DB::select($sql);
         return view('alunos.index')
             ->with('alunos', $alunos);
     }
@@ -94,7 +91,9 @@ class AlunoController extends AppBaseController
             return redirect(route('alunos.index'));
         }
 
-        return view('alunos.show')->with('aluno', $aluno);
+        $curso = Curso::find($aluno->id_curso);
+        
+        return view('alunos.show')->with('aluno', $aluno)->with('curso', $curso);
     }
 
     /**

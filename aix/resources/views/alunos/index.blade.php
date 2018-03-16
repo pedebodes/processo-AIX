@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1 class="pull-left">Alunos</h1>
         <h1 class="pull-right">
-           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('alunos.create') !!}">Add New</a>
+           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('alunos.create') !!}">Adicionar Novo</a>
         </h1>
     </section>
     <div class="content">
