@@ -13,7 +13,13 @@
 <!-- Situacao Field -->
 <div class="form-group">
     {!! Form::label('situacao', 'Situacao:') !!}
-    <p>{!! $aluno->situacao !!}</p>
+    {{--  <p>{!! $aluno->situacao !!}</p>  --}}
+        <p>@if($aluno->situacao == "A")
+                    Ativo
+                @else
+                Inativo
+            @endif           
+      </p>
 </div>
 
 <!-- Cep Field -->
@@ -55,7 +61,8 @@
 <!-- Avatar Field -->
 <div class="form-group">
     {!! Form::label('avatar', 'Avatar:') !!}
-    <p>{!! $aluno->avatar !!}</p>
+    {{--  <p>{!! $aluno->avatar !!}</p>  --}}
+    <p><img src="{!! $aluno->avatar !!}" height="42" width="42"></p>
 </div>
 
 <!-- Id Curso Field -->

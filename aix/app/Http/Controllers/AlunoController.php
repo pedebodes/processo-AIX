@@ -11,6 +11,7 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\Aluno;
+use App\Models\Curso;
 
 class AlunoController extends AppBaseController
 {
@@ -32,6 +33,9 @@ class AlunoController extends AppBaseController
     {
         $this->alunoRepository->pushCriteria(new RequestCriteria($request));
         $alunos = $this->alunoRepository->all();
+        
+        
+
 
         return view('alunos.index')
             ->with('alunos', $alunos);
@@ -44,7 +48,8 @@ class AlunoController extends AppBaseController
      */
     public function create()
     {
-        return view('alunos.create');
+        $curso = Curso::all();
+        return view('alunos.create')->with('curso', $curso);;
     }
 
     /**
@@ -109,7 +114,10 @@ class AlunoController extends AppBaseController
             return redirect(route('alunos.index'));
         }
 
-        return view('alunos.edit')->with('aluno', $aluno);
+
+        $curso = Curso::all();
+         return view('alunos.edit')->with('aluno', $aluno)->with('curso',$curso);
+
     }
 
     /**

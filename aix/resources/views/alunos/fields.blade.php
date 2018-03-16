@@ -7,13 +7,17 @@
 <!-- Situacao Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('situacao', 'Situacao:') !!}
-    {!! Form::text('situacao', null, ['class' => 'form-control']) !!}
+<p>{{ Form::select('situacao', [
+   'A' => 'Ativo',
+   'I' => 'Inativo'
+   ], null, ['class' => 'form-control']) }}</p>
+
 </div>
 
 <!-- Cep Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('cep', 'Cep:') !!}
-    {!! Form::text('cep', null, ['class' => 'form-control']) !!}
+    {!! Form::number('cep', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Logradouro Field -->
@@ -43,7 +47,7 @@
 <!-- Uf Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('uf', 'Uf:') !!}
-    {!! Form::text('uf', null, ['class' => 'form-control']) !!}
+    {!! Form::text('uf', null, ['class' => 'form-control','maxlength'=>'2','onkeydown' => 'upperCaseF(this)' ]) !!}
 </div>
 
 <!-- Avatar Field -->
@@ -55,8 +59,12 @@
 
 <!-- Id Curso Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_curso', 'Id Curso:') !!}
-    {!! Form::text('id_curso', null, ['class' => 'form-control']) !!}
+    {!! Form::label('id_curso', 'Curso:') !!}
+    {!! Form::select('id_curso', $curso->pluck('nome','id'),  null, ['class' => 'form-control']) !!}
+
+
+
+
 </div>
 
 <!-- Turma Field -->
@@ -68,7 +76,7 @@
 <!-- Data Matricula Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('data_matricula', 'Data Matricula:') !!}
-    {!! Form::text('data_matricula', null, ['class' => 'form-control']) !!}
+    {!! Form::date('data_matricula', null, ['class' => 'form-control']) !!}
      
 </div>
 

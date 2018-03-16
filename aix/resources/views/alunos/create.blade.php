@@ -2,6 +2,7 @@
 
 @section('content')
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+
 <section class="content-header">
         <h1>
             Aluno
@@ -85,6 +86,12 @@
                 }
             });
         });
+
+function upperCaseF(a){
+    setTimeout(function(){
+        a.value = a.value.toUpperCase();
+    }, 1);
+}
 
     </script>
 
