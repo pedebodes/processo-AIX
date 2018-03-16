@@ -12,29 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    return redirect(route('login'));
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
-
-
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index');
-
-Route::resource('cursos', 'CursoController');
-
-Route::get('xml', ['uses' => 'CursoController@xml']);
-Route::post('carga', ['uses' => 'CursoController@carga']);
-
-
-
-
-
-Route::resource('alunos', 'AlunoController');
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('cursos', 'CursoController');
+    Route::get('xml', ['uses' => 'CursoController@xml']);
+    Route::post('carga', ['uses' => 'CursoController@carga']);
+    Route::resource('alunos', 'AlunoController');
+});
