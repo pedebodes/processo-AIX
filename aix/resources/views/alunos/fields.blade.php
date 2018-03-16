@@ -77,3 +77,5 @@
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
     <a href="{!! route('alunos.index') !!}" class="btn btn-default">Cancel</a>
 </div>
+
+
