@@ -35,4 +35,6 @@ Route::post('carga', ['uses' => 'CursoController@carga']);
 
 
 
+
+
 Route::resource('alunos', 'AlunoController');

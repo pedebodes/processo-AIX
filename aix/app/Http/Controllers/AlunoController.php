@@ -57,22 +57,16 @@ class AlunoController extends AppBaseController
     public function store(CreateAlunoRequest $request)
     {
         $input = $request->all();
-     
+
         $aluno = $this->alunoRepository->create($input);
 
         $imageName = base64_encode($request->nome . date('Y-m-d H:i:s')) . '.' . $request->file('avatar')->getClientOriginalExtension();
         $request->file('avatar')->move(base_path() . '/public/avatar/', $imageName);
 
-// echo $aluno->id;
-        //     $upImage = new Aluno();
-        // $upImage::find($aluno->id);
-        // $upImage->avatar = base_path() . '/public/avatar/'.$imageName;
-
         $aluno = $this->alunoRepository->findWithoutFail($aluno->id);
-       $aluno->avatar = '/avatar/' . $imageName;
-       $aluno->save();
-
-        // dd($aluno);
+        $aluno->avatar = '/avatar/' . $imageName;
+        $aluno->save();
+ 
         Flash::success('Aluno saved successfully.');
 
         return redirect(route('alunos.index'));
@@ -137,6 +131,13 @@ class AlunoController extends AppBaseController
         }
 
         $aluno = $this->alunoRepository->update($request->all(), $id);
+
+        $imageName = base64_encode($request->nome . date('Y-m-d H:i:s')) . '.' . $request->file('avatar')->getClientOriginalExtension();
+        $request->file('avatar')->move(base_path() . '/public/avatar/', $imageName);
+
+        $aluno = $this->alunoRepository->findWithoutFail($id);
+        $aluno->avatar = '/avatar/' . $imageName;
+        $aluno->save();
 
         Flash::success('Aluno updated successfully.');
 

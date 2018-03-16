@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class AlunoRepository
  * @package App\Repositories
- * @version March 16, 2018, 1:12 pm UTC
+ * @version March 16, 2018, 5:02 pm UTC
  *
  * @method Aluno findWithoutFail($id, $columns = ['*'])
  * @method Aluno find($id, $columns = ['*'])
@@ -28,7 +28,10 @@ class AlunoRepository extends BaseRepository
         'bairro',
         'cidade',
         'uf',
-        'avatar'
+        'avatar',
+        'id_curso',
+        'turma',
+        'data_matricula'
     ];
 
     /**

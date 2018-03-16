@@ -10,6 +10,9 @@
         <th>Cidade</th>
         <th>Uf</th>
         <th>Avatar</th>
+        <th>Id Curso</th>
+        <th>Turma</th>
+        <th>Data Matricula</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>
@@ -24,7 +27,10 @@
             <td>{!! $aluno->bairro !!}</td>
             <td>{!! $aluno->cidade !!}</td>
             <td>{!! $aluno->uf !!}</td>
-            <td><img src="{!! $aluno->avatar !!}" height="42" width="42"></td>
+         <td><img src="{!! $aluno->avatar !!}" height="42" width="42"></td>
+            <td>{!! $aluno->id_curso !!}</td>
+            <td>{!! $aluno->turma !!}</td>
+            <td>{!! $aluno->data_matricula !!}</td>
             <td>
                 {!! Form::open(['route' => ['alunos.destroy', $aluno->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

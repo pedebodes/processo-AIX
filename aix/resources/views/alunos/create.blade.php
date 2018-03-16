@@ -12,8 +12,7 @@
 
             <div class="box-body">
                 <div class="row">
-                    {{--  {!! Form::open(['route' => 'alunos.store']) !!}  --}}
-                    {!! Form::open( array('route' => 'alunos.store',  'files' => true)) !!}
+                 {!! Form::open( array('route' => 'alunos.store',  'files' => true)) !!}
 
                         @include('alunos.fields')
 

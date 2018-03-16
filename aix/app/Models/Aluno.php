@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Aluno
  * @package App\Models
- * @version March 16, 2018, 1:12 pm UTC
+ * @version March 16, 2018, 5:02 pm UTC
  *
  * @property string nome
  * @property string situacao
@@ -19,6 +19,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string cidade
  * @property string uf
  * @property string avatar
+ * @property string id_curso
+ * @property string turma
+ * @property string data_matricula
  */
 class Aluno extends Model
 {
@@ -39,7 +42,10 @@ class Aluno extends Model
         'bairro',
         'cidade',
         'uf',
-        'avatar'
+        'avatar',
+        'id_curso',
+        'turma',
+        'data_matricula'
     ];
 
     /**
@@ -56,7 +62,10 @@ class Aluno extends Model
         'bairro' => 'string',
         'cidade' => 'string',
         'uf' => 'string',
-        'avatar' => 'file'
+        'avatar' => 'string',
+        'id_curso' => 'string',
+        'turma' => 'string',
+        'data_matricula' => 'string'
     ];
 
     /**
@@ -64,9 +73,16 @@ class Aluno extends Model
      *
      * @var array
      */
+    // public static $rules = [
+    //     'nome' => 'required',
+    //     'situacao' => 'cep string text',
+    //     'cep' => 'required',
+    //     'id_curso' => 'required'
+    // ];
+
     public static $rules = [
-        'nome' => 'required',
-        'avatar' => 'mimes:jpeg,jpg,png'
+        'nome' => 'required'
+
     ];
 
     

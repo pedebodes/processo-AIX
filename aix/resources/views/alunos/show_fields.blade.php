@@ -54,10 +54,26 @@
 
 <!-- Avatar Field -->
 <div class="form-group">
-    {{--  {!! Form::label('avatar', 'Avatar:') !!}
-    <p>{!! $aluno->avatar !!}</p>  --}}
+    {!! Form::label('avatar', 'Avatar:') !!}
+    <p>{!! $aluno->avatar !!}</p>
+</div>
 
-    <img src="{!! $aluno->avatar !!}" height="80" width="80">
+<!-- Id Curso Field -->
+<div class="form-group">
+    {!! Form::label('id_curso', 'Id Curso:') !!}
+    <p>{!! $aluno->id_curso !!}</p>
+</div>
+
+<!-- Turma Field -->
+<div class="form-group">
+    {!! Form::label('turma', 'Turma:') !!}
+    <p>{!! $aluno->turma !!}</p>
+</div>
+
+<!-- Data Matricula Field -->
+<div class="form-group">
+    {!! Form::label('data_matricula', 'Data Matricula:') !!}
+    <p>{!! $aluno->data_matricula !!}</p>
 </div>
 
 <!-- Created At Field -->
