@@ -23,5 +23,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('cursos', 'CursoController');
     Route::get('xml', ['uses' => 'CursoController@xml']);
     Route::post('carga', ['uses' => 'CursoController@carga']);
+    Route::get('fudeu', ['uses' => 'AlunoController@fudeu']);
+    
     Route::resource('alunos', 'AlunoController');
 });

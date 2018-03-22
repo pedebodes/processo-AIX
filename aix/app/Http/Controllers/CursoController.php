@@ -168,13 +168,16 @@ public function carga(Request $request){
 
                 foreach ($xml as $value) {
                     #Verifica se o resgistro ja esta armazenado na tabela
-                    if (DB::table('cursos')->where('nome', $value->nome)->count() == 0) {
+                    // if (DB::table('cursos')->where('nome', $value->nome)->count() == 0 || DB::table('cursos')->where('deleted_at',null)->count() == 0 ) {
+
+                     DB::select("delete from cursos where nome = '{$value->nome}'");
+                       
                         #insere registro na tabela
                         $curso = new Curso();
                         $curso->codigo = $value->codigo;
                         $curso->nome = $value->nome;
                         $curso->save();
-                    }
+                    // }
                 }
                 // return redirect('curso.index')
                 Flash::success('Cadastrado efetuado com sucesso !');

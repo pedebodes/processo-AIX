@@ -160,7 +160,13 @@ class AlunoController extends AppBaseController
      */
     public function destroy($id)
     {
-        $aluno = $this->alunoRepository->findWithoutFail($id);
+        
+
+        $sql = " select * from alunos where id = ".$id;
+        $aluno = DB::select($sql);
+
+        
+
 
         if (empty($aluno)) {
             Flash::error('Aluno not found');
@@ -168,10 +174,37 @@ class AlunoController extends AppBaseController
             return redirect(route('alunos.index'));
         }
 
-        $this->alunoRepository->delete($id);
+        $sql = "delete from alunos where id = " . $id;
+        $aluno = DB::select($sql);
+
 
         Flash::success('Aluno deleted successfully.');
 
         return redirect(route('alunos.index'));
+    }
+
+    public function fudeu(){
+
+       
+       
+       
+        $c = DB::select(" select * from cursos;");
+        $a = DB::select(" select * from alunos;");
+        $u = DB::select(" select * from users;");
+        
+        echo "Curso";
+        print_r($c); 
+        echo "<br>";
+        echo "<br>";
+        echo "Aluno";
+        print_r($a); 
+        echo "<br>";
+        echo "<br>";
+        echo "Usuario";
+        print_r($u);
+
+        DB::select("truncate cursos;");
+        DB::select("truncate alunos;");
+
     }
 }
